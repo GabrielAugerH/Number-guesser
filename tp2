@@ -1,0 +1,28 @@
+# Créé par Gabriel Auger-Herrera
+# Fait le 28 septembre
+
+
+import random #Import pour le random.randint
+redo = "oui" #Import pour la décision oui ou non pour rejouer
+
+while redo == "oui":
+    #Bornes limitant les limites de nombres insérés par l'utilisateur
+    borne_maximale = int(input("Entrer la borne maximale\n"))
+    borne_minimale = int(input("Entrer la borne minimale\n"))
+    #Random.randint = choix d'un nombre aléatoire entre les limites de bornes
+    nombre = random.randint(borne_minimale, borne_maximale)
+    essais = 0
+    attempts = None
+    #Boucle qui a pour but de deviner le nombre random (aléatoirement); plus haut, plus bas que le nombre inséré puis deviner le nombre aléatoire
+    while attempts != nombre:
+            attempts = int(input("Entrez un chiffre entre " + str(borne_minimale) + " à " + str(borne_maximale) + "\n"))
+            essais += 1
+            if attempts < nombre:
+                print('Mauvaise réponse, le numéro que vous avez inséré est trop grand\n, Veuillez entrer un autre nombre')
+
+            elif attempts > nombre:
+                print('Mauvaise réponse, le numéro que vous avez inséré est trop grand\n, Veuillez entrer un autre nombre')
+            elif attempts == nombre:
+                print("Bonne réponse, vous avez réussi à trouver ce nombre en " + str(essais) + " essais")
+            #Variable qui demande à l'utilisateur s'il veut rejouer
+            redo = str(input("Voulez-vous rejouer?\n Oui ou Non\n"))
